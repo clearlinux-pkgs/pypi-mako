@@ -6,7 +6,7 @@
 #
 Name     : pypi-mako
 Version  : 1.1.6
-Release  : 88
+Release  : 89
 URL      : https://files.pythonhosted.org/packages/af/b6/42cd322ae555aa770d49e31b8c5c28a243ba1bbb57ad927e1a5f5b064811/Mako-1.1.6.tar.gz
 Source0  : https://files.pythonhosted.org/packages/af/b6/42cd322ae555aa770d49e31b8c5c28a243ba1bbb57ad927e1a5f5b064811/Mako-1.1.6.tar.gz
 Source1  : https://files.pythonhosted.org/packages/af/b6/42cd322ae555aa770d49e31b8c5c28a243ba1bbb57ad927e1a5f5b064811/Mako-1.1.6.tar.gz.asc
@@ -17,19 +17,11 @@ Requires: pypi-mako-bin = %{version}-%{release}
 Requires: pypi-mako-license = %{version}-%{release}
 Requires: pypi-mako-python = %{version}-%{release}
 Requires: pypi-mako-python3 = %{version}-%{release}
-BuildRequires : MarkupSafe
 BuildRequires : buildreq-distutils3
-Provides: Mako
-Provides: Mako-python
-Provides: Mako-python3
-BuildRequires : funcsigs
-BuildRequires : nose
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pypi(markupsafe)
 BuildRequires : pytest
-BuildRequires : python-mock
-BuildRequires : six
 BuildRequires : tox
 BuildRequires : virtualenv
 
@@ -92,7 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641454556
+export SOURCE_DATE_EPOCH=1641459343
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
