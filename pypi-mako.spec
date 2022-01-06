@@ -6,7 +6,7 @@
 #
 Name     : pypi-mako
 Version  : 1.1.6
-Release  : 89
+Release  : 90
 URL      : https://files.pythonhosted.org/packages/af/b6/42cd322ae555aa770d49e31b8c5c28a243ba1bbb57ad927e1a5f5b064811/Mako-1.1.6.tar.gz
 Source0  : https://files.pythonhosted.org/packages/af/b6/42cd322ae555aa770d49e31b8c5c28a243ba1bbb57ad927e1a5f5b064811/Mako-1.1.6.tar.gz
 Source1  : https://files.pythonhosted.org/packages/af/b6/42cd322ae555aa770d49e31b8c5c28a243ba1bbb57ad927e1a5f5b064811/Mako-1.1.6.tar.gz.asc
@@ -24,6 +24,9 @@ BuildRequires : pypi(markupsafe)
 BuildRequires : pytest
 BuildRequires : tox
 BuildRequires : virtualenv
+Provides: Mako
+Provides: Mako-python
+Provides: Mako-python3
 
 %description
 =========================
