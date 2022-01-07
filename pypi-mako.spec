@@ -18,12 +18,12 @@ Requires: pypi-mako-license = %{version}-%{release}
 Requires: pypi-mako-python = %{version}-%{release}
 Requires: pypi-mako-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : pluggy
+BuildRequires : pypi(pluggy)
 BuildRequires : py-python
 BuildRequires : pypi(markupsafe)
 BuildRequires : pytest
 BuildRequires : tox
-BuildRequires : virtualenv
+BuildRequires : pypi(virtualenv)
 Provides: Mako
 Provides: Mako-python
 Provides: Mako-python3
