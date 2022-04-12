@@ -4,13 +4,14 @@
 #
 Name     : pypi-mako
 Version  : 1.2.0
-Release  : 92
+Release  : 93
 URL      : https://files.pythonhosted.org/packages/50/ec/1d687348f0954bda388bfd1330c158ba8d7dea4044fc160e74e080babdb9/Mako-1.2.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/50/ec/1d687348f0954bda388bfd1330c158ba8d7dea4044fc160e74e080babdb9/Mako-1.2.0.tar.gz
 Summary  : A super-fast templating language that borrows the best ideas from the existing templating languages.
 Group    : Development/Tools
 License  : MIT
 Requires: pypi-mako-bin = %{version}-%{release}
+Requires: pypi-mako-license = %{version}-%{release}
 Requires: pypi-mako-python = %{version}-%{release}
 Requires: pypi-mako-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -39,9 +40,18 @@ ties to Python calling and scoping semantics.
 %package bin
 Summary: bin components for the pypi-mako package.
 Group: Binaries
+Requires: pypi-mako-license = %{version}-%{release}
 
 %description bin
 bin components for the pypi-mako package.
+
+
+%package license
+Summary: license components for the pypi-mako package.
+Group: Default
+
+%description license
+license components for the pypi-mako package.
 
 
 %package python
@@ -73,7 +83,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1647014602
+export SOURCE_DATE_EPOCH=1649783950
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -88,6 +98,8 @@ python3 setup.py build
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-mako
+cp %{_builddir}/Mako-1.2.0/LICENSE %{buildroot}/usr/share/package-licenses/pypi-mako/eafe808420347be680db267888cb2f6be967c615
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -99,6 +111,10 @@ echo ----[ mark ]----
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/mako-render
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-mako/eafe808420347be680db267888cb2f6be967c615
 
 %files python
 %defattr(-,root,root,-)
