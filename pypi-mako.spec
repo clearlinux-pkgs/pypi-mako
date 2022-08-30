@@ -5,15 +5,16 @@
 # Source0 file verified with key 0x330239C1C4DAFEE1 (classic@zzzcomputing.com)
 #
 Name     : pypi-mako
-Version  : 1.2.1
-Release  : 100
-URL      : https://files.pythonhosted.org/packages/ad/dd/34201dae727bb183ca14fd8417e61f936fa068d6f503991f09ee3cac6697/Mako-1.2.1.tar.gz
-Source0  : https://files.pythonhosted.org/packages/ad/dd/34201dae727bb183ca14fd8417e61f936fa068d6f503991f09ee3cac6697/Mako-1.2.1.tar.gz
-Source1  : https://files.pythonhosted.org/packages/ad/dd/34201dae727bb183ca14fd8417e61f936fa068d6f503991f09ee3cac6697/Mako-1.2.1.tar.gz.asc
+Version  : 1.2.2
+Release  : 101
+URL      : https://files.pythonhosted.org/packages/6d/f2/8ad2ec3d531c97c4071572a4104e00095300e278a7449511bee197ca22c9/Mako-1.2.2.tar.gz
+Source0  : https://files.pythonhosted.org/packages/6d/f2/8ad2ec3d531c97c4071572a4104e00095300e278a7449511bee197ca22c9/Mako-1.2.2.tar.gz
+Source1  : https://files.pythonhosted.org/packages/6d/f2/8ad2ec3d531c97c4071572a4104e00095300e278a7449511bee197ca22c9/Mako-1.2.2.tar.gz.asc
 Summary  : A super-fast templating language that borrows the best ideas from the existing templating languages.
 Group    : Development/Tools
 License  : MIT
 Requires: pypi-mako-bin = %{version}-%{release}
+Requires: pypi-mako-license = %{version}-%{release}
 Requires: pypi-mako-python = %{version}-%{release}
 Requires: pypi-mako-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -42,9 +43,18 @@ ties to Python calling and scoping semantics.
 %package bin
 Summary: bin components for the pypi-mako package.
 Group: Binaries
+Requires: pypi-mako-license = %{version}-%{release}
 
 %description bin
 bin components for the pypi-mako package.
+
+
+%package license
+Summary: license components for the pypi-mako package.
+Group: Default
+
+%description license
+license components for the pypi-mako package.
 
 
 %package python
@@ -68,10 +78,10 @@ python3 components for the pypi-mako package.
 
 
 %prep
-%setup -q -n Mako-1.2.1
-cd %{_builddir}/Mako-1.2.1
+%setup -q -n Mako-1.2.2
+cd %{_builddir}/Mako-1.2.2
 pushd ..
-cp -a Mako-1.2.1 buildavx2
+cp -a Mako-1.2.2 buildavx2
 popd
 
 %build
@@ -79,7 +89,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656621448
+export SOURCE_DATE_EPOCH=1661875808
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -103,6 +113,8 @@ popd
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-mako
+cp %{_builddir}/Mako-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/pypi-mako/2311e14c1a66abb71be0eba0e63a37573c4e5d59 || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -123,6 +135,10 @@ popd
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/mako-render
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-mako/2311e14c1a66abb71be0eba0e63a37573c4e5d59
 
 %files python
 %defattr(-,root,root,-)
