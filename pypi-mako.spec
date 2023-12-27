@@ -7,7 +7,7 @@
 #
 Name     : pypi-mako
 Version  : 1.3.0
-Release  : 110
+Release  : 111
 URL      : https://files.pythonhosted.org/packages/a9/6e/6b41e654bbdcef90c6b9e7f280bf7cbd756dc2560ce76214f5cdbc4ddab5/Mako-1.3.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a9/6e/6b41e654bbdcef90c6b9e7f280bf7cbd756dc2560ce76214f5cdbc4ddab5/Mako-1.3.0.tar.gz
 Summary  : A super-fast templating language that borrows the best ideas from the existing templating languages.
