@@ -1,5 +1,5 @@
 PKG_NAME := pypi-mako
-URL = https://files.pythonhosted.org/packages/9c/cf/947dfd8475332b603dc8cb46170a7c333415f6ff1b161896ee76b4358435/Mako-1.3.1.tar.gz
+URL = https://files.pythonhosted.org/packages/d4/1b/71434d9fa9be1ac1bc6fb5f54b9d41233be2969f16be759766208f49f072/Mako-1.3.2.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
