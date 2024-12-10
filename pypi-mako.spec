@@ -6,10 +6,10 @@
 # autospec commit: 5424026
 #
 Name     : pypi-mako
-Version  : 1.3.7
-Release  : 118
-URL      : https://files.pythonhosted.org/packages/5a/27/5af876b41cebd9d76fa8333b83ef9121726893f725952022edd194a1671e/mako-1.3.7.tar.gz
-Source0  : https://files.pythonhosted.org/packages/5a/27/5af876b41cebd9d76fa8333b83ef9121726893f725952022edd194a1671e/mako-1.3.7.tar.gz
+Version  : 1.3.8
+Release  : 119
+URL      : https://files.pythonhosted.org/packages/5f/d9/8518279534ed7dace1795d5a47e49d5299dd0994eed1053996402a8902f9/mako-1.3.8.tar.gz
+Source0  : https://files.pythonhosted.org/packages/5f/d9/8518279534ed7dace1795d5a47e49d5299dd0994eed1053996402a8902f9/mako-1.3.8.tar.gz
 Summary  : A super-fast templating language that borrows the best ideas from the existing templating languages.
 Group    : Development/Tools
 License  : MIT
@@ -80,10 +80,10 @@ python3 components for the pypi-mako package.
 
 
 %prep
-%setup -q -n mako-1.3.7
-cd %{_builddir}/mako-1.3.7
+%setup -q -n mako-1.3.8
+cd %{_builddir}/mako-1.3.8
 pushd ..
-cp -a mako-1.3.7 buildavx2
+cp -a mako-1.3.8 buildavx2
 popd
 
 %build
@@ -91,7 +91,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1733322019
+export SOURCE_DATE_EPOCH=1733827668
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
